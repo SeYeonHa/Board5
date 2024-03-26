@@ -20,9 +20,9 @@ public class MenuController {
 	
 	// 메뉴 목록 조회  /Menus/List
 	@RequestMapping("/List")   
-	public   String   list( Model model ) {
+	public   String   list( Model model, MenuVo menuVo ) {
 		// 조회한결과를 ArrayList 로 돌려준디
-		List<MenuVo> menuList = menuMapper.getMenuList();
+		List<MenuVo> menuList = menuMapper.getMenuList( menuVo );
 				
 		// 조회 결과를 넘겨준다 ( Model )
 		model.addAttribute( "menuList", menuList );

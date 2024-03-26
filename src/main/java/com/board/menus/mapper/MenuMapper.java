@@ -15,7 +15,7 @@ public interface MenuMapper {
 	// menuMapper.xml 에서 id="insertMenu" SQL 문을 찾아서 실행
 	void insertMenu( MenuVo menuVo );
 
-	List<MenuVo> getMenuList();
+	List<MenuVo> getMenuList( MenuVo menuVo);
 
 	void deleteMenu(MenuVo menuVo);
 
