@@ -16,21 +16,21 @@
  	
  	</select>
  
- 	<insert id="insertBoardList">
- 			
+ 	<insert id="insertBoard">
  	
- 		INSERT  INTO  BOARD
- 			(	  MENU_ID
- 				, TITLE
- 				, WRITER
- 				, CONTENT
- 		 	)
- 		 VALUES
- 		 	(	  #{ menu_id }
- 		 		, #{ title   }
- 		 		, #{ writer  }
- 		 		, #{ content }
- 		 	)
+	INSERT INTO board (
+		    BNO,
+		    MENU_ID,
+		    TITLE,
+		    CONTENT,
+		    WRITER
+		) VALUES (
+		    ( SELECT NVL(MAX(BNO),0)+1 FROM BOARD ),
+		    #{ menu_id },
+		    #{ title   },
+		    #{ content },
+		    #{ writer  }
+		)
  	</insert>
  
 </mapper>
